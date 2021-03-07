@@ -3,19 +3,6 @@ from gpiozero import Button
 from time import sleep
 import picamera
 
-
-def camera_module():
-    return
-
-
-def main():
-    camera_module()
-
-
-if __name__ == 'main':
-    main()
-
-
 # Main code
 button = Button(14)
 running = True
@@ -32,7 +19,7 @@ try:
         pi_camera = camera.PiCamera()
         #pi_camera.resolution = (x, y)
         pi_camera.start_preview()
-        button.when_pressed = picture(pi_camera)
+        button.when_pressed = timestamp(pi_camera)
         pi_camera.stop_preview()
         sleep(1)
 except KeyboardInterrupt:  # Ctrl + C
